@@ -1,0 +1,9 @@
+For the NewsGetter we will test if it receives all the information that we have had searched:
+-receive nothing 
+-receive symbols between letters
+-receive a very long word
+-receive a link (test it if is a valid link or a broken link)
+For the NewsFilter we will test if it receives from the NewsGetter duplicate articles:
+-can't find any articles
+-3 or more articles match
+-can't filter article by age (for parent control)
