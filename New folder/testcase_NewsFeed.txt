@@ -1,8 +1,15 @@
 NEWSFEED
 For the NewsFeed we will test if it shows the latest news:
 -getnews()-Check if the news alerts contain all the news from the specified day;
-	  -Check if the links to the news are valid;
-	  -Check if the summary from the interface correspond with the news from the link
--check_NG()-Check if the connection with NewsGetter it’s OK, if it sends the right answer;
--check_NF()-Check if the connection with NewsFilter it’s OK, if it sends the right answer;
--check_C-Check if the connection with Controller it’s OK, if it sends the right answer;
+		possible errors:fail to send the news;
+				news alert is empty;
+				news aren't filtred by the NewsFilter
+-check_NG()-Check the connection with NewsGetter;
+		possible errors:fail to connect;
+				the NewsGeter send wrong answer or send a empty list;
+-check_NF()-Check the connection with NewsFilter 
+		possible errors:fail to connect; 
+				the NewsFilter send duplicate news;
+-check_C-Check the connection with Controller 
+		possible errors:fail to connect;
+				send the wrong answer to one comad;
