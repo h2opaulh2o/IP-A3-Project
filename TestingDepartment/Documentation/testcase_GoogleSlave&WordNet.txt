@@ -16,3 +16,4 @@
 *possible error: does send back synserts (maybe because it memorize the last search in WordNet and now it search again for that word or it might search for words that looks similar to parts of the sequence of letters and numbers; it should have an appropriate error message)
 - search a really long word: does search for a part of that word (maybe because it truncate the word and search for the part that makes sense; it should raise an error message while typing that the limit for characters has been reached)
 - search escape characters: doesn't show them as characters (maybe because the soft interprets them as escape characters; it should interpret them as characters and raise an error message that Word didn't found any match)
+- search word with special characters: doesn't find the word (maybe because cannot understand the special characters in different encode; it should interpret them or throw an error message)
