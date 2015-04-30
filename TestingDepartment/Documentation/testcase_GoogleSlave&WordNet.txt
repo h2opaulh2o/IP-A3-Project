@@ -1,0 +1,18 @@
+	For the search feature we will test if it sends the right information that we want to search:
+- search a corect word
+- search nothing
+- search a sequence of letters and numbers that doesn't make sense
+- search a really long word
+- search escape characters
+- search some HTML code to see if it will be executed or will be interpreted as a string
+- verify if the links received are valid 
+	For Wordnet we will test if it sends back the apropriate output:
+- search a corect word
+*possible errors: doesn't send back appropriate synserts (maybe because it doesn't receive the right word)
+		 doesn't send back any synserts (maybe because it doesn't receive the word; it should have an appropriate error message)
+- search nothing
+*possible error: does send back synserts (maybe because it memorize the last search in WordNet and now it search for the same word; it should have an appropriate error message)
+- search a sequence of letters and numbers that doesn't make sense
+*possible error: does send back synserts (maybe because it memorize the last search in WordNet and now it search again for that word or it might search for words that looks similar to parts of the sequence of letters and numbers; it should have an appropriate error message)
+- search a really long word: does search for a part of that word (maybe because it truncate the word and search for the part that makes sense; it should raise an error message while typing that the limit for characters has been reached)
+- search escape characters: doesn't show them as characters (maybe because the soft interprets them as escape characters; it should interpret them as characters and raise an error message that Word didn't found any match)
