@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package pkginterface;
+import bingbangsearch.*;
+import java.util.Set;
+import java.io.*;
 
 /**
  *
@@ -27,7 +30,8 @@ public class JFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        newsArea = new java.awt.TextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        newsArea = new javax.swing.JTextArea();
         newspaper = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         Language = new javax.swing.JButton();
@@ -36,7 +40,7 @@ public class JFrame extends javax.swing.JFrame {
         twitter = new javax.swing.JLabel();
         fb = new javax.swing.JLabel();
         newsfire = new javax.swing.JLabel();
-        loop = new javax.swing.JLabel();
+        searchButton = new javax.swing.JButton();
         searchBar = new javax.swing.JTextField();
         title = new javax.swing.JLabel();
         header = new javax.swing.JLabel();
@@ -47,8 +51,13 @@ public class JFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 553));
         setPreferredSize(new java.awt.Dimension(800, 553));
         getContentPane().setLayout(null);
-        getContentPane().add(newsArea);
-        newsArea.setBounds(70, 300, 690, 220);
+
+        newsArea.setColumns(20);
+        newsArea.setRows(5);
+        jScrollPane1.setViewportView(newsArea);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(80, 300, 660, 210);
 
         newspaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/res/newspaper.png"))); // NOI18N
         getContentPane().add(newspaper);
@@ -68,12 +77,12 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Language);
-        Language.setBounds(60, 180, 160, 29);
+        Language.setBounds(60, 180, 160, 23);
 
         jButton1.setBackground(new java.awt.Color(255, 204, 102));
         jButton1.setText("Color Mixer");
         getContentPane().add(jButton1);
-        jButton1.setBounds(577, 180, 160, 29);
+        jButton1.setBounds(577, 180, 160, 23);
 
         gmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/res/gmail.png"))); // NOI18N
         getContentPane().add(gmail);
@@ -94,9 +103,16 @@ public class JFrame extends javax.swing.JFrame {
         getContentPane().add(newsfire);
         newsfire.setBounds(600, 10, 30, 50);
 
-        loop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/res/loop.png"))); // NOI18N
-        getContentPane().add(loop);
-        loop.setBounds(710, 120, 30, 30);
+        searchButton.setBackground(new java.awt.Color(255, 255, 255));
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/res/loop.png"))); // NOI18N
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchButton);
+        searchButton.setBounds(700, 110, 50, 50);
 
         searchBar.setAutoscrolls(false);
         searchBar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,12 +140,19 @@ public class JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_searchBarActionPerformed
 
     private void LanguageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LanguageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LanguageActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+    PrintStream printStream = new PrintStream(new CustomOutputStream(newsArea));
+    System.setOut(printStream);
+    BingBangSearch.search(searchBar.getText());
+    
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,11 +197,12 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JLabel gmail;
     private javax.swing.JLabel header;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel loop;
-    private java.awt.TextArea newsArea;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea newsArea;
     private javax.swing.JLabel newsfire;
     private javax.swing.JLabel newspaper;
     private javax.swing.JTextField searchBar;
+    private javax.swing.JButton searchButton;
     private javax.swing.JLabel title;
     private javax.swing.JLabel twitter;
     // End of variables declaration//GEN-END:variables
