@@ -5,7 +5,7 @@ For the search feature we will test if it sends the right information that we wa
 		a really long word,escape characters,some HTML code;
 -sort_Search()-the serch engine fail to sort the results;
 -Test_GS()-GoogleSlave fail to search different results;
-	  -GoogleSlave fail to return te wright answer;
+	  -GoogleSlave fail to return the right answer;
 -Test_SM()-SearchMaster fail to connect with GoogleSlave;
 	  -SearchMaster fail to search different resultat;
 	  -SearchMaster fail to use similar keyords;
