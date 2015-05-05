@@ -56,8 +56,12 @@ public class BingBangSearch {
 
 	public static void search(String query) {
    
-	Set<LinkFrequency> topLinks = new HashSet<LinkFrequency>();
+	ArrayList<LinkFrequency> topLinks = new ArrayList<LinkFrequency>();
 	ArrayList<ResultG> allResults = new ArrayList<ResultG>();
+	//Scanner t = new Scanner(System.in);
+	//String q = query.substring(0, query.indexOf(' '));
+	//System.out.println(q);
+	//t.nextInt();
 	Database db = new Database(query);
 	Synset[] synset = db.getSynset();
 	for(int j = 0; j < synset.length; j++)
@@ -83,16 +87,48 @@ public class BingBangSearch {
 				allResults.remove(j);
 			}
 		}
-		if(!(temp1.getUrl().trim().contains("googleusercontent")&&temp1.getTitle().trim().contains("�n cache")))
+		if(!(temp1.getUrl().trim().contains("googleusercontent")&&temp1.getTitle().trim().contains("În cache")))
 		{
 			LinkFrequency link = new LinkFrequency(temp1, counter);
 			topLinks.add(link);
-			System.out.println(temp1.getTitle());
-			System.out.println(temp1.getUrl());
-			System.out.println(counter);
 		}
 	}
-	
+	topLinks = sortLinks(topLinks);
+	for(int i = 0; i < topLinks.size(); i++)
+	{		
+		System.out.println(topLinks.get(i).getData().getTitle());
+		System.out.println(topLinks.get(i).getData().getUrl());
+		System.out.println(topLinks.get(i).getFrequency());
+	}
+  }
+
+  static public ArrayList<LinkFrequency> sortLinks(ArrayList<LinkFrequency> topLinks)
+  {
+	  for(int i = 0; i < topLinks.size() - 1; i++)
+		  for(int j = i+1; j < topLinks.size(); j++)
+		  {
+			  LinkFrequency first = topLinks.get(i);
+			  LinkFrequency second = topLinks.get(j);
+			  if(first.getFrequency()<second.getFrequency())
+			  {
+				  topLinks.set(i, second);
+				  topLinks.set(j, first);
+			  }
+		  }
+	  return topLinks;
+  }
+  static public String getLink(String link)
+  {
+	  int first = 0;
+	  char[] li = new char[2000];
+	  first = link.indexOf('&');
+	  if(first > 0)
+	  {
+		link.getChars(0, first, li, 0);
+	  	String l = new String(li);
+	  	return l;
+	  }
+	  return link;
   }
  
   static public Set<ResultG> getDataFromGoogle(String query) {
@@ -119,7 +155,8 @@ public class BingBangSearch {
 			if(temp.startsWith("/url?q=")){
 				
 				String temp2 = link.text();
-				ResultG res = new ResultG(temp, temp2);
+				String c = getLink(temp);
+				ResultG res = new ResultG(c, temp2);
 				result.add(res);
 			}
 		}
