@@ -1,9 +1,18 @@
-For the NewsGetter we will test if it receives all the information that we have had searched:
+For the NewsGetter we will test if it receives  all the information that we have had searched:
 -receive nothing 
+*possible errors:maybe because it receives only spaces and no words
 -receive symbols between letters
+*possible errors: maybe because it can't read some of the symbols
 -receive a very long word
--receive a link (test it if is a valid link or a broken link)
+*possible errors: maybe it reads a part of the word(maybe because it truncate the word and search for the part that makes sense; it should raise an error message who will say that the limit for characters has been reached)
+-receive a link
+*possible errors: maybe the link is broken and it doesn't work
 For the NewsFilter we will test if it receives from the NewsGetter duplicate articles:
 -can't find any articles
+*possible errors:maybe the article has other name
 -3 or more articles match
+*possible errors:maybe it doesn't see that the articles match
 -can't filter article by age (for parent control)
+*possible errors:maybe because it doesn't have an age specification
+
+
