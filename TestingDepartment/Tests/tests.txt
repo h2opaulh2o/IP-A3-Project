@@ -1,0 +1,73 @@
+
+**Testing CustomOutputStream**
+is the main class implemented in Interface,which will contain the text introduced by the user,
+in other words,the news that will be searched.
+
+package pkginterface;
+import java.io.IOException;
+import org.junit.Test;
+import java.io.OutputStream;
+public class WriterTest {
+    private OutputStream CustomOutputStream;
+
+        //method we are testing
+		//is the function which will receive a variable b and will put the searched data in the text area.
+Also,it will have a scroll which will offer the possibility to see all the data from the text area.
+        public void write(int b) throws IOException {
+                outputStream.write(string.length());
+                outputStream.write(string.getBytes());
+        }
+    @Test
+        public void testWriteInOrder() throws IOException {
+                write(this.CustomOutputStream, "TEST");
+                InOrder inOrder = inOrder(this.CustomOutputStream);
+                inOrder.verify(this.CustomOutputStream).write(3);
+                inOrder.verify(this.CustomOutputStream).write("TEST".getBytes());
+        }
+
+    @Test
+    public void testWriteInWrongOrder() throws Exception {
+        write(this.CustomOutputStream, "Test");
+        InOrder inOrder = inOrder(this.CustomOutputStream);
+        inOrder.verify(this.CustomOutputStream).write("Test".getBytes());
+        inOrder.verify(this.CustomOutputStream).write(4);
+    }
+
+    @Test
+    public void testWriteInWrongOrder_string() throws Exception {
+         write(this.CustomOutputStream, "Test");
+         InOrder inOrder = inOrder(this.CustomOutputStream);
+         inOrder.verify(this.CustomOutputStream).write(4);
+         inOrder.verify(this.CustomOutputStream).write("XYZ".getBytes());
+    }
+
+    @Test
+        public void testWrite() throws IOException {
+                write(this.CustomOutputStream, "TEST");
+                verify(this.CustomOutputStream).write(3);
+                verify(this.CustomOutputStream).write("TEST".getBytes());
+        }
+}
+*Testing the JFrame*
+
+Test For Scroll and Text Area
+JFrame frame = new JFrame ("Test");
+//TEXT AREA
+JTextArea textArea = new JTextArea("TEST");
+
+    textArea.setLineWrap(true);
+    textArea.setEditable(false);
+    textArea.setVisible(true);
+JScrollPane scroll = new JScrollPane (textArea, 
+   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+frame.add(scroll);
+frame.setVisible (true);
+
+
+Display the text
+
+final OutputStream os = new FileOutputStream("file");
+final PrintStream printStream = new PrintStream(os);
+printStream.print("String");
+printStream.close();
+
