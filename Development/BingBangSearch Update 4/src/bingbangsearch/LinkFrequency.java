@@ -18,4 +18,9 @@ public class LinkFrequency {
 	{
 		return frequency;
 	}
+	
+	public void setFrequency(int f)
+	{
+		this.frequency = f;
+	}
 }
