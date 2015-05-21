@@ -13,8 +13,13 @@ public class tz{
 	 tz g= new tz();
 	
   System.setProperty("wordnet.database.dir", "C:\\dict");
- 
-System.out.println(g.dist("earth","land"));//distanta 1
+  
+  ArrayList<String> list_a = new ArrayList<String>();
+  
+ for(int i=0;i<10;i++){
+	 
+ }
+System.out.println(g.dist("person","land"));
 
 }
 	NounSynset[] hypernyms_a;
@@ -36,7 +41,7 @@ public int dist (String a,String b){
 			list_a = this.go(list_a);
 			list_b = this.go(list_b);
 			
-			for(int q=0;q<5;q++){
+			for(int q=0;q<4;q++){
 				for(int i=0;i<list_a.size();i++){
 					for(int j=0;j<list_b.size();j++){
 						if(this.one(a, b) || a.equals(b)){
@@ -61,6 +66,7 @@ public int dist (String a,String b){
 public ArrayList<String> go(ArrayList<String> list_a){
 	
 	ArrayList<String> temp_a = new ArrayList<String>(list_a);
+	
 	ArrayList<String> temp = new ArrayList<String>();
 	
 	for (int i = 0; i < list_a.size(); i++) {
