@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,8 +12,8 @@ public class RssTest {
 			System.out.println("Introduce optiunea");
 			
 			while(ok==1){
-				System.out.println("1- Automat");
-				System.out.println("2- Citire de la tastatura");
+				System.out.println("1- Automat (un rss)");
+				System.out.println("2- Citire de la tastatura( 2 rss-uri)");
 				System.out.println("3- Compune RSS");
 				System.out.println("4- Get Titlu ");
 				System.out.println("5- Get Descriere ");
@@ -23,20 +25,85 @@ public class RssTest {
 				 case 1:  XmlReader parser = new XmlReader("http://therealnews.com/rss/therealnewsitunesaudio.rss");
 				   		  GetRss feed = parser.readFeed();
 				   		  System.out.println(feed);
+
+				   		  String numeFisier;
+					 	  Scanner numeF=new Scanner(System.in);
+					      System.out.println("Fisierul va fi salvat sub numele de ..");
+					      numeFisier=numeF.nextLine();
+
+					      try 
+					        {
+						 FileWriter writer = new FileWriter("D:\\"+numeFisier); 
 				   		  for (SetRss message : feed.getMessages()) {
+				   		  	writer.write( message.getDescription()+ "     ");
+						   writer.append("\r\n");
+						 }
+						 	  writer.close();
+						 	  }
+						 catch(IOException ex) {
+					            System.out.println("Nu am putut scrie in"+ "D:\\"+numeFisier + "'");}
+				   	 			
+				   	 		  for (SetRss message : feed.getMessages()) {
 				   			  System.out.println(message);
 				   		  }
 			           break;
+
 				 case 2:  String path;
+				 		  String path2;
+
+				 		   System.out.println("Introduceti link-urile de unde vor fi citite RSS-urile...");
 				 		  Scanner aa =new Scanner(System.in); 
-				 		  System.out.println("Introduceti linkul de unde va fi citit RSS...");
 				 		  path= aa.next();
+
+				 		  Scanner aaa =new Scanner(System.in); 
+				 		  path2= aaa.next();
+
 					 	  XmlReader parser11 = new XmlReader(path);
 				   		  GetRss feed11 = parser11.readFeed();
 				   		  System.out.println(feed11);
-				   		  for (SetRss message : feed11.getMessages()) {
-				   			  System.out.println(message);
-				   		  }
+
+				   		  XmlReader parser12 = new XmlReader(path2);
+				   		  GetRss feed12 = parser12.readFeed();
+				   		  System.out.println(feed12);
+				   		  String numeFisier1;
+						 Scanner numeF1=new Scanner(System.in);
+						 System.out.println("Fisierul va fi salvat sub numele de ..");
+						 numeFisier1=numeF1.nextLine();
+						 try 
+						        {
+							 FileWriter writer = new FileWriter("D:\\"+numeFisier1); 
+							 for(SetRss message : feed11.getMessages()) {
+							   writer.write( message.getDescription()+ "     ");
+							   writer.append("\r\n");
+							 }
+							 writer.close();
+						 }
+							 catch(IOException ex) {
+						            System.out.println("Nu am putut scrie in"+ "D:\\"+numeFisier1 + "'");}
+					   	 
+					   		  for (SetRss message : feed11.getMessages()) {
+					   			  System.out.println(message);
+					   		  }
+					   		  
+					   		String numeFisier2;
+							 Scanner numeF2=new Scanner(System.in);
+							 System.out.println("Fisierul va fi salvat sub numele de ..");
+							 numeFisier2=numeF2.nextLine();
+							 try 
+							        {
+								 FileWriter writer = new FileWriter("D:\\"+numeFisier2); 
+								 for(SetRss message : feed11.getMessages()) {
+								   writer.write( message.getDescription()+ "     ");
+								   writer.append("\r\n");
+								 }
+								 writer.close();
+							 }
+								 catch(IOException ex) {
+							            System.out.println("Nu am putut scrie in"+ "D:\\"+numeFisier2 + "'");}
+						   	 
+						   		  for (SetRss message : feed12.getMessages()) {
+						   			  System.out.println(message);
+						   		  }
 				   	  break;
 				 case 3: String title,description,link;
 				 		 System.out.println("Titlu");
