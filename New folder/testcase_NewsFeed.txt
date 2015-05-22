@@ -1,6 +1,0 @@
-NEWSFEED
-For the NewsFeed we will test if it shows the latest news:
--getnews()-Check if the news alerts contain all the news from the specified day;
--check_NG()-Check if the connection with NewsGetter it’s OK, if it sends the right answer;
--check_NF()-Check if the connection with NewsFilter it’s OK, if it sends the right answer;
--check_C-Check if the connection with Controller it’s OK, if it sends the right answer;
