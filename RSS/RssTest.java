@@ -12,8 +12,8 @@ public class RssTest {
 			System.out.println("Introduce optiunea");
 			
 			while(ok==1){
-				System.out.println("1- Automat (un rss)");
-				System.out.println("2- Citire de la tastatura( 2 rss-uri)");
+				System.out.println("1- Automat (3 rss-uri - afisate pe ecran)");
+				System.out.println("2- Citire de la tastatura( 2 rss-uri - afisate in fisier)");
 				System.out.println("3- Compune RSS");
 				System.out.println("4- Get Titlu ");
 				System.out.println("5- Get Descriere ");
@@ -22,32 +22,33 @@ public class RssTest {
 				int optiune=read.nextInt();
 				
 				switch (optiune){
-				 case 1:  XmlReader parser = new XmlReader("http://therealnews.com/rss/therealnewsitunesaudio.rss");
-				   		  GetRss feed = parser.readFeed();
-				   		  System.out.println(feed);
-
-				   		  String numeFisier;
-					 	  Scanner numeF=new Scanner(System.in);
-					      System.out.println("Fisierul va fi salvat sub numele de ..");
-					      numeFisier=numeF.nextLine();
-
-					      try 
-					        {
-						 FileWriter writer = new FileWriter("D:\\"+numeFisier); 
-				   		  for (SetRss message : feed.getMessages()) {
-				   		  	writer.write( message.getDescription()+ "     ");
-						   writer.append("\r\n");
-						 }
-						 	  writer.close();
-						 	  }
-						 catch(IOException ex) {
-					            System.out.println("Nu am putut scrie in"+ "D:\\"+numeFisier + "'");}
-				   	 			
-				   	 		  for (SetRss message : feed.getMessages()) {
-				   			  System.out.println(message);
-				   		  }
-			           break;
-
+				 case 1: XmlReader parser1 = new XmlReader("http://rss.realitatea.net/stiri.xml");
+		 		  XmlReader parser2 = new XmlReader("http://www.romaniatv.net/rss/stiri.xml");
+		 		  XmlReader parser3 = new XmlReader("http://therealnews.com/rss/therealnewsitunesaudio.rss");
+		   		  
+		 		  GetRss feed1 = parser1.readFeed();
+		 		  GetRss feed2 = parser2.readFeed();
+		 		  GetRss feed3= parser3.readFeed();
+		 		  
+		 		  System.out.println("1) Rss RealitateaTV");
+		   		  System.out.println(feed1);
+		   	 		  for (SetRss message1 : feed1.getMessages()) {
+		   			  System.out.println(message1);
+		   		  }
+		   	 		  
+		   	 		  System.out.println("2) Rss RomaniaTV");
+		   	 		System.out.println(feed2);
+		   	 		  for (SetRss message2 : feed2.getMessages()) {
+		   			  System.out.println(message2);
+		   		  }
+		   	 		  
+		   	 		  System.out.println("3) RSS The Real News Network");
+		   	 		System.out.println(feed3);
+		   	 		  for (SetRss message3 : feed3.getMessages()) {
+		   			  System.out.println(message3);
+		   		  }
+	           break;
+	           
 				 case 2:  String path;
 				 		  String path2;
 
@@ -137,10 +138,10 @@ public class RssTest {
 			 		  Scanner aa11 =new Scanner(System.in); 
 			 		  System.out.println("Introduceti linkul de unde va fi citit RSS...");
 			 		  path1= aa11.next();
-					  XmlReader parser1 = new XmlReader(path1);
-			   	      GetRss feed1 = parser1.readFeed();
+					  XmlReader parser4 = new XmlReader(path1);
+			   	      GetRss feed4 = parser4.readFeed();
 			   		  int i=1;
-			   		  for (SetRss message : feed1.getMessages()) {
+			   		  for (SetRss message : feed4.getMessages()) {
 			   			  System.out.println("Titlu "+i+"   "+message.getTitle());
 			   			  i++;
 			   		  }
