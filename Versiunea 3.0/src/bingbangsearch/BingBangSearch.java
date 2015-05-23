@@ -128,8 +128,7 @@ public class BingBangSearch {
                 int y=0;
 		lastResults = sortLinks(lastResults);
 		for(int g = 0; g < lastResults.size();g++)
-		{   System.out.println(lastResults.get(g).getData().getTitle());
-                    System.out.println(lastResults.get(g).getData().getUrl());
+		{  
                     rezultate[y][0]=lastResults.get(g).getData().getUrl();
                     rezultate[y][1]=lastResults.get(g).getData().getTitle();
 		    
@@ -177,7 +176,7 @@ public class BingBangSearch {
  
     	Set<ResultG> result = new HashSet<ResultG>();
     	String request = new String();
-    	if(engine == "bing")
+    	if(engine == "Bing")
     	{
     		request = "https://www.bing.com/search?q="+ query +"&num=10";
     	}
@@ -187,7 +186,7 @@ public class BingBangSearch {
     	}
     	try 
     	{	
-    		if(engine == "bing")
+    		if(engine == "Bing")
     		{
 				Document doc;
 				doc = Jsoup.connect(request).timeout(5000).get();
