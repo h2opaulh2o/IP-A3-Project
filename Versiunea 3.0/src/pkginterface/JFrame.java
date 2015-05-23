@@ -258,7 +258,7 @@ public class JFrame extends javax.swing.JFrame {
         jTextField3.setBounds(80, 320, 110, 30);
 
         searchEngineSelector.setBackground(new java.awt.Color(255, 255, 102));
-        searchEngineSelector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Google", "Bing" }));
+        searchEngineSelector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bing", "Google" }));
         getContentPane().add(searchEngineSelector);
         searchEngineSelector.setBounds(280, 260, 100, 30);
 
@@ -330,7 +330,7 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(HelpButton);
-        HelpButton.setBounds(1140, 30, 100, 29);
+        HelpButton.setBounds(1140, 30, 100, 23);
 
         title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/res/Title.png"))); // NOI18N
         getContentPane().add(title);
@@ -384,6 +384,8 @@ public class JFrame extends javax.swing.JFrame {
             if (results[i][1]!=null && results[i][1].length()>1)
                 builder.append("<li><a href="+results[i][0]+">"+results[i][1]+"</a></li><br>");
         newsArea.setText(builder.toString());
+        
+        System.out.println(searchEngineSelector.getSelectedItem().toString());
     }//GEN-LAST:event_searchButtonActionPerformed
 
                                
