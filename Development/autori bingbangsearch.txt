@@ -1,0 +1,15 @@
+Autori Ionita Andreea Otilia si Popa Andrei Silviu
+Contribuitie in mod egal din moment ce ne-am ocupat
+doar 2 oameni de cautare,folosind Jsoup, pe Internet
+(motorul de cautare putand fi ales Google sau Bing).
+
+bingbangsearch
+
+database
+
+linkfrequency
+
+resultG
+
+
+writeXml
