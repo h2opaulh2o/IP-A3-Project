@@ -1,0 +1,135 @@
+Development - NewsFeed
+
+	Antal Paul
+		- Impartit taskuri
+		- Inglobat functiile facute in NewsFeed
+		- Debugging here and there
+
+
+	Damoc Andrei
+		- RSS
+		- Diagrame
+		- Descriere
+	Dominte Stefan
+
+
+	Gheorghitanu Ionut
+		- Scos forma neflexionata ( News Filter )
+
+	Ioja Alex
+		- Distanta dintre doua cuvint
+
+	Stoian Sorin
+		- Distanta dintre doua texte
+
+	Todireanu Denis
+
+	Tudorache Adriana.
+		- RSS
+		- Diagrame
+		- Descriere
+
+Development - Search Engine
+	Autori Ionita Andreea Otilia si Popa Andrei Silviu
+	Contribuitie in mod egal din moment ce ne-am ocupat
+	doar 2 oameni de cautare,folosind Jsoup, pe Internet
+	(motorul de cautare putand fi ales Google sau Bing).
+
+	- bingbangsearch
+	- database
+	- linkfrequency
+	- resultG
+	- writeXml
+
+Management
+
+	Antal Paul
+		- GitHub
+		- Requirements List
+		- Scenarii de utilizare
+		- Ajutor site
+		- Comunicat cu module
+		- Diagrame
+
+	Avadanei Larisa
+		- Site
+		- Requirements List
+		- Scenarii de utilizare
+		- Comunicat cu module
+		- Diagrame
+
+	Miron Tudor
+		- Ajutor site
+		- Requirements List
+		- Scenarii de utilizare
+		- Comunicat cu module
+		
+	Vieru Andreea
+		- Ajutor site
+		- Requirements List
+		- Scenarii de utilizare
+		- Comunicat cu module
+
+Interface
+
+	Cazacu Cosmin
+		- Integration
+		- Interface 
+		- Installer
+
+	Gilca Iulian
+		- Integration
+		- Interface 
+		- Installer
+
+	Cucos Adrian
+		- Integration
+		- Interface 
+		- Installer
+
+	Nastasa Dragos
+		- Integration
+		- Interface 
+		- Installer
+
+
+		Testing Department
+
+Sirbu Cristina
+	-	Depistarea taskurilor pentru departament
+	-	Impartirea taskurilor in mod egal si in functie de punctele forte ale membrilor si stabilire de deadlineuri pentru a tremina taskurile in timp util dar rezonabil
+	-	Postare issues pe GitHub pentru fiecare task
+	-	Training GitHub
+	-	Comunicarea cu echipa toate celelalte echipe (sau cel putin incercarea; in caz de esec am cautat alte solutii)
+	-	Diagrama de clase (efectuata in urma unor discutii cu intreaga echipa)
+	-	Diagrama de colaborare
+	-	Testcase pentru WordNet si GoogleSlave
+	-	Teste si raport pentru Google Slave
+	-	Teste pentru WordNet inainte de a vedea codul celor de la departamentul de development
+Nita Lavinia
+	-	A venit cu propuneri pentru o mai buna colaborare a departamentului
+	-	A participat la intalniri pentru discutii despre cum ar putea fi testat softul
+	-	A testat NewsFeed-ul utilizand codul dezvoltate si a scris si raport
+	-	A testat clasele pentru RSS si Search Feature inainte de a vedea codul si inca odata dupa ce am primit codul (de aceasta daca facand si raport)
+	-	A creat testcaseuri pentru NewsFeed
+	-	A creat diagrama de stari
+Oprea Andra
+	-	A venit cu propuneri pentru o mai buna colaborare a departamentului
+	-	A participat la intalniri pentru discutii despre cum ar putea fi testat softul
+	-	A scris testcaseuri pentru Controller si Interface
+	-	A facut diagrama de Use Case
+	-	A facut teste pentru DataBase dupa ce am primit codul de la developeri
+	-	A testat manual interfata
+	-	A creat teste pentru clasa LinkFrequency inainte de a vedea codul
+Tudosa Alex
+	-	A creat diagrama de secventa
+	-	A venit cu propuneri pentru o mai buna colaborare a departamentului
+	-	A facut testcaseuri pentru NewsGetter si NewsFilter inainte de a vedea codul
+	-	A facut teste si rapoarte pentru clasele LinkFrequency si ResultG dupa ce a vazut codul
+Vieru Andreea
+	-	A venit cu propuneri pentru o mai buna colaborare a departamentului
+	-	A creat cateva issues pe GitHub
+	-	A participat la intalniri pentru discutii despre cum ar putea fi testat softul
+	-	A testat daca sunt folosite clasele XMLReader si XMLWriter dupa ce vazut codul
+	-	A creat teste pentru CustomOutputStream dupa ce a vazut codul
+
